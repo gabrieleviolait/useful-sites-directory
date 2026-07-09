@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="monetag" content="c9bdc6feee3bab1f4afbe3cf5cbb460e">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory · siti</title>
+  <!-- stile "terminale" verde su nero -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0f0b;
+      font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', monospace;
+      color: #00FD00;
+      padding: 2rem 1.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.5;
+      border: 2px solid #1a3a1a;
+      margin: 8px;
+      box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
+    }
+
+    /* effetto scanline sottile */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: repeating-linear-gradient(0deg, rgba(0, 30, 0, 0.2) 0px, rgba(0, 0, 0, 0.3) 2px, transparent 3px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .container {
+      max-width: 1300px;
+      width: 100%;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* intestazione */
+    .header {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px dashed #2a6b2a;
+      padding-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px #00aa33, 0 0 2px #0f0;
+      word-break: break-word;
+    }
+
+    h1 i {
+      font-style: normal;
+      background: #0f3f0f;
+      padding: 0 10px;
+      color: #000;
+      text-shadow: none;
+      background: #00FD00;
+      box-shadow: 0 0 10px #0f0;
+      margin-left: 8px;
+    }
+
+    .sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      color: #7fbf7f;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      background: #1a3a1a;
+      padding: 4px 14px;
+      border-radius: 30px;
+      border: 1px solid #00b800;
+      font-size: 0.9rem;
+    }
+
+    /* barra di ricerca / filtro */
+    .toolbar {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-wrapper {
+      flex: 2;
+      min-width: 240px;
+      display: flex;
+      background: #0e1a0e;
+      border: 1.5px solid #2a8c2a;
+      border-radius: 40px;
+      padding: 2px 2px 2px 18px;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 200, 0, 0.1);
+    }
+
+    .search-wrapper:focus-within {
+      border-color: #00FF66;
+      box-shadow: 0 0 15px #1f6;
+    }
+
+    .search-wrapper input {
+      background: transparent;
+      border: none;
+      padding: 14px 5px 14px 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: 1.1rem;
+      color: #b3ffb3;
+      outline: none;
+    }
+
+    .search-wrapper input::placeholder {
+      color: #2f6f2f;
+      font-style: italic;
+    }
+
+    .search-wrapper button {
+      background: #1a4a1a;
+      border: none;
+      border-radius: 40px;
+      padding: 10px 22px;
+      margin: 3px;
+      font-family: inherit;
+      font-weight: bold;
+      color: #00FFAA;
+      border: 1px solid #2d8c2d;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 0 5px #0f0;
+    }
+
+    .search-wrapper button:hover {
+      background: #0f6a0f;
+      color: #fff;
+      border-color: #9f9;
+      box-shadow: 0 0 12px #0f0;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      background: #0f1f0f;
+      border: 1px solid #2b6e2b;
+      color: #a0e0a0;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.15s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 3px #1a3a1a;
+    }
+
+    .cat-btn.active {
+      background: #00aa33;
+      color: #000;
+      border-color: #b3ffb3;
+      box-shadow: 0 0 16px #0f0;
+      font-weight: 900;
+    }
+
+    .cat-btn:hover {
+      background: #1f5c1f;
+      color: #eeffee;
+    }
+
+    /* grid siti */
+    .site-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 25px 0 40px;
+    }
+
+    .site-card {
+      background: #0c150c;
+      border: 1.8px solid #1e5e1e;
+      border-radius: 18px;
+      padding: 1.5rem 1.2rem 1.2rem;
+      transition: all 0.2s;
+      box-shadow: 0 6px 0 #041004, 0 0 15px rgba(0, 50, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(1px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-card:hover {
+      border-color: #1f9f1f;
+      transform: translateY(-5px);
+      box-shadow: 0 12px 0 #041004, 0 0 30px #1f6;
+      background: #0f1f0f;
+    }
+
+    /* glow animato lieve */
+    .site-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, #0f0, #8f8, #0f0);
+      opacity: 0.5;
+    }
+
+    .site-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 8px #0f0);
+    }
+
+    .site-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+      word-break: break-word;
+      margin-bottom: 6px;
+      text-decoration: underline wavy #1f6 1.5px;
+      text-underline-offset: 7px;
+    }
+
+    .site-url {
+      font-size: 0.9rem;
+      color: #5fbf5f;
+      margin-bottom: 12px;
+      border-bottom: 1px dotted #2a6e2a;
+      padding-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .site-desc {
+      color: #afdfaf;
+      margin-bottom: 14px;
+      flex: 1;
+      font-size: 0.95rem;
+    }
+
+    .site-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+
+    .tag {
+      background: #0a2a0a;
+      border: 1px solid #1f9f1f;
+      color: #b0f0b0;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .visit-link {
+      align-self: flex-start;
+      background: transparent;
+      border: 1.5px solid #00b000;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #00FFAA;
+      font-size: 1rem;
+      transition: 0.2s;
+      text-align: center;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+
+    .visit-link:hover {
+      background: #1f6f1f;
+      color: #000;
+      border-color: #b3ffb3;
+      box-shadow: 0 0 15px #0f0;
+      text-shadow: none;
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 1.6rem;
+      padding: 3rem;
+      border: 2px dashed #2a7a2a;
+      background: #0e1a0e;
+      border-radius: 50px;
+      color: #afd;
+    }
+
+    /* footer — mantenuto esattamente come da richiesta + aggiustamenti minimi per coerenza */
+    .footer {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 2px solid #1e5a1e;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* stili inline sono già nel tag p, ma aggiungo un contenitore per centratura */
+    .footer p {
+      font-size: 12px !important;
+      color: #00FD00 !important;
+      line-height: 1.6 !important;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #00FD00 !important;
+      text-decoration: underline !important;
+    }
+
+    .footer a:hover {
+      text-shadow: 0 0 8px #0f0;
+    }
+
+    /* piccola nota anno dinamico via js */
+    #year {
+      font-weight: bold;
+    }
+
+    .page-switch {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .route-link {
+      display: inline-flex;
+      align-items: center;
+      background: #0f1f0f;
+      border: 1px solid #2b6e2b;
+      color: #a0e0a0;
+      padding: 8px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 3px #1a3a1a;
+    }
+
+    .route-link:hover,
+    .route-link.active {
+      background: #00aa33;
+      color: #000;
+      border-color: #b3ffb3;
+      box-shadow: 0 0 16px #0f0;
+      text-shadow: none;
+    }
+
+    .ads-view {
+      display: none;
+      margin: 28px 0 40px;
+      background: #0c150c;
+      border: 1.8px solid #1e5e1e;
+      border-radius: 18px;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 6px 0 #041004, 0 0 15px rgba(0, 50, 0, 0.5);
+    }
+
+    .ads-view.active {
+      display: block;
+    }
+
+    .ads-view h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 8px #00aa33, 0 0 2px #0f0;
+    }
+
+    .ads-meta-box {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px dashed #2a8c2a;
+      background: #071107;
+      color: #b3ffb3;
+      overflow-wrap: anywhere;
+    }
+
+    .ads-meta-box code {
+      color: #00ffaa;
+      font-family: inherit;
+    }
+
+    /* responsive */
+    @media (max-width: 550px) {
+      body { padding: 1rem 0.8rem; margin: 4px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📁 DIRECTORY/ <i>SITI</i></h1>
+    <div class="sub">
+      <span>🌐 esplora · filtra · connetti</span>
+      <span class="badge">>_ 22 siti attivi</span>
+    </div>
+  </div>
+
+  <nav class="page-switch" aria-label="Navigazione directory">
+    <a class="route-link" id="homeLink" href="./index.html">Directory</a>
+    <a class="route-link" id="adsLink" href="./index.html?page=ads">Ads</a>
+  </nav>
+
+  <section id="directoryView">
+  <!-- barra ricerca e filtri -->
+  <div class="toolbar">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="cerca per nome, url o descrizione..." aria-label="Cerca siti">
+      <button id="clearSearchBtn" aria-label="Pulisci ricerca">⌫ PULISCI</button>
+    </div>
+    <div class="filter-tabs" id="filterContainer">
+      <button class="cat-btn active" data-cat="all">TUTTI</button>
+      <button class="cat-btn" data-cat="tech">💻 TECH</button>
+      <button class="cat-btn" data-cat="design">🎨 DESIGN</button>
+      <button class="cat-btn" data-cat="opensource">📦 OPEN SOURCE</button>
+    </div>
+  </div>
+
+  <!-- griglia dei siti (popolata via js) -->
+  <div id="sitesGrid" class="site-grid"></div>
+
+  </section>
+
+  <section id="adsView" class="ads-view" aria-labelledby="adsTitle">
+    <h2 id="adsTitle">ADS / MONETAG</h2>
+    <p>Pagina dedicata al controllo e alla verifica Monetag per ciaositi.it.</p>
+    <div class="ads-meta-box">
+      <p>Meta tag presente nel documento:</p>
+      <code>&lt;meta name="monetag" content="c9bdc6feee3bab1f4afbe3cf5cbb460e"&gt;</code>
+    </div>
+  </section>
+
+  <!-- footer esattamente come da specifiche -->
+  <div class="footer">
+    <p style="font-size: 12px; color: #00FD00; line-height: 1.6;">
+      Copyright © <span id="year"></span> Creato da 
+      <a href="https://www.gabrieleviola.it/" target="_blank" rel="noopener" style="color: #00FD00; text-decoration: underline;">Gabriele Viola</a> 
+      <br>
+      Tutti i diritti riservati | P.IVA 02640890220 | 
+      <a href="https://www.gabrieleviola.it/informativa-privacy-progetti-e-siti-statici/" target="_blank" rel="noopener" style="color: #00FD00; text-decoration: underline;">Privacy e Cookie Policy</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  (function(){
+    "use strict";
+
+    // ---------- DATI DIRECTORY (siti esempio) ----------
+    const sitesData = [
+      {
+        nome: "Gabriele Viola",
+        url: "https://www.gabrieleviola.it/",
+        descrizione: "Portfolio e sviluppo web. Progetti statici, design minimale e consulenza.",
+        icona: "🌿",
+        categoria: "tech",
+        tags: ["portfolio", "sviluppo", "statico","personale"]
+      },
+      {
+        nome: "MDN Web Docs",
+        url: "https://developer.mozilla.org/",
+        descrizione: "Risorse per sviluppatori, documentazione web aperta. HTML, CSS, JS.",
+        icona: "📘",
+        categoria: "tech",
+        tags: ["docs", "riferimento", "mozilla"]
+      },
+      {
+        nome: "CodePen",
+        url: "https://codepen.io/",
+        descrizione: "Community front-end, test di snippet e ispirazione creativa.",
+        icona: "✏️",
+        categoria: "design",
+        tags: ["frontend", "social", "prototipi"]
+      },
+      {
+        nome: "GitHub",
+        url: "https://github.com/",
+        descrizione: "Piattaforma per lo sviluppo collaborativo e versionamento.",
+        icona: "🐙",
+        categoria: "opensource",
+        tags: ["git", "repo", "opensource"]
+      },
+      {
+        nome: "Figma",
+        url: "https://www.figma.com/",
+        descrizione: "Design collaborativo di interfacce e prototipazione.",
+        icona: "🎯",
+        categoria: "design",
+        tags: ["ui", "ux", "prototipazione"]
+      },
+      {
+        nome: "Stack Overflow",
+        url: "https://stackoverflow.com/",
+        descrizione: "Domande e risposte per programmatori professionisti e appassionati.",
+        icona: "🧩",
+        categoria: "tech",
+        tags: ["qa", "community", "coding"]
+      },
+      {
+        nome: "PrivacyTools",
+        url: "https://www.privacytools.io/",
+        descrizione: "Strumenti e guide per la protezione della privacy online.",
+        icona: "🔒",
+        categoria: "tech",
+        tags: ["privacy", "sicurezza", "guide"]
+      },
+      {
+        nome: "Awwwards",
+        url: "https://www.awwwards.com/",
+        descrizione: "Premi e ispirazione per web design e creatività digitale.",
+        icona: "🏆",
+        categoria: "design",
+        tags: ["webdesign", "ispirazione", "premi"]
+      },
+      {
+        nome: "VSCode",
+        url: "https://code.visualstudio.com/",
+        descrizione: "Editor di codice leggero e potente, open source.",
+        icona: "💠",
+        categoria: "opensource",
+        tags: ["editor", "sviluppo", "tools"]
+      },
+      
+      {
+        nome: "Coolors",
+        url: "https://coolors.co/",
+        descrizione: "Generatore di palette di colori per design e sviluppo.",
+        icona: "🎨",
+        categoria: "design",
+        tags: ["colori", "palette", "strumenti"]
+      },
+      {
+        nome: "Open Source Initiative",
+        url: "https://opensource.org/",
+        descrizione: "Promozione e tutela dell'open source.",
+        icona: "⚖️",
+        categoria: "opensource",
+        tags: ["licenze", "opensource", "community"]
+      },
+	  
+	  {
+  nome: "Adotta un Hacker",
+  url: "https://www.adottaunhacker.it/",
+  descrizione: "Servizi e consulenze nel mondo cybersecurity e sviluppo.",
+  icona: "🛡️",
+  categoria: "tech",
+  tags: ["cybersecurity", "hacker", "servizi","personale"]
+},
+{
+  nome: "SitoWeb.info",
+  url: "https://sitoweb.info/",
+  descrizione: "Risorse e guide sul mondo dei siti web e presenza online.",
+  icona: "🌐",
+  categoria: "tech",
+  tags: ["web", "guide", "hosting","personale"]
+},
+{
+  nome: "SitoAbbonamento",
+  url: "https://sitoabbonamento.it/",
+  descrizione: "Piattaforma per la gestione di servizi in abbonamento.",
+  icona: "💳",
+  categoria: "tech",
+  tags: ["abbonamenti", "business", "servizi","personale"]
+},
+{
+  nome: "Crescita Social",
+  url: "https://crescita.social/",
+  descrizione: "Strumenti e strategie per la crescita sui social media.",
+  icona: "📈",
+  categoria: "design",
+  tags: ["social", "marketing", "growth","personale"]
+},
+{
+  nome: "Prism Break",
+  url: "https://prism-break.org/en/",
+  descrizione: "Alternative open source ai servizi più diffusi per la privacy.",
+  icona: "🔐",
+  categoria: "opensource",
+  tags: ["privacy", "opensource", "security"]
+},
+{
+  nome: "Linux Journey",
+  url: "https://linuxjourney.org/",
+  descrizione: "Guida interattiva per imparare Linux passo dopo passo.",
+  icona: "🐧",
+  categoria: "opensource",
+  tags: ["linux", "learning", "terminal"]
+},
+{
+  nome: "Parrot Security",
+  url: "https://parrotsec.org/",
+  descrizione: "Distribuzione Linux focalizzata su sicurezza e penetration testing.",
+  icona: "🦜",
+  categoria: "opensource",
+  tags: ["linux", "security", "pentest"]
+},
+{
+  nome: "Kali Linux",
+  url: "https://www.kali.org/",
+  descrizione: "Sistema operativo avanzato per penetration testing e sicurezza.",
+  icona: "🐉",
+  categoria: "opensource",
+  tags: ["linux", "hacking", "security"]
+},
+{
+  nome: "Security Onion",
+  url: "https://securityonionsolutions.com/",
+  descrizione: "Piattaforma open source per monitoraggio e difesa della rete.",
+  icona: "🧅",
+  categoria: "opensource",
+  tags: ["network", "security", "monitoring"]
+},
+{
+  nome: "Soluzioni Informatiche (Gumroad)",
+  url: "https://soluzioninformatiche.gumroad.com/",
+  descrizione: "Risorse digitali, guide e strumenti per sviluppo web, sicurezza e crescita online.",
+  icona: "📦",
+  categoria: "tech",
+  tags: ["gumroad", "risorse", "cybersecurity","personale"]
+}
+    ];
+
+    // Riferimenti DOM
+    const grid = document.getElementById('sitesGrid');
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const filterBtns = document.querySelectorAll('.cat-btn');
+    const yearSpan = document.getElementById('year');
+    const directoryView = document.getElementById('directoryView');
+    const adsView = document.getElementById('adsView');
+    const homeLink = document.getElementById('homeLink');
+    const adsLink = document.getElementById('adsLink');
+
+    // Stato corrente
+    let currentCategory = 'all';
+    let currentSearchTerm = '';
+
+    // Imposta anno nel footer (già fatto inline, ma assicuriamoci)
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // ---------- RENDER funzione principale ----------
+    function renderGrid() {
+      // Filtra per categoria e termine di ricerca
+      const filtered = sitesData.filter(site => {
+        // filtro categoria
+        if (currentCategory !== 'all' && site.categoria !== currentCategory) {
+          return false;
+        }
+        // filtro testo (case insensitive)
+        if (currentSearchTerm.trim() !== '') {
+          const term = currentSearchTerm.trim().toLowerCase();
+          const inNome = site.nome.toLowerCase().includes(term);
+          const inUrl = site.url.toLowerCase().includes(term);
+          const inDesc = site.descrizione.toLowerCase().includes(term);
+          const inTags = site.tags.some(t => t.toLowerCase().includes(term));
+          if (!(inNome || inUrl || inDesc || inTags)) return false;
+        }
+        return true;
+      });
+
+      // Se nessun risultato
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="no-results">⚠️ NESSUN SITO TROVATO · prova un altro filtro</div>`;
+        return;
+      }
+
+      // Genera HTML cards
+      let htmlString = '';
+      filtered.forEach(site => {
+        // crea tag html
+        const tagsHtml = site.tags.map(t => `<span class="tag">#${t}</span>`).join('');
+        
+        htmlString += `
+          <div class="site-card">
+            <div class="site-icon">${site.icona}</div>
+            <div class="site-title">${escapeHtml(site.nome)}</div>
+            <div class="site-url">${escapeHtml(site.url)}</div>
+            <div class="site-desc">${escapeHtml(site.descrizione)}</div>
+            <div class="site-tags">${tagsHtml}</div>
+            <a href="${escapeHtml(site.url)}" target="_blank" rel="noopener noreferrer" class="visit-link">VISITA →</a>
+          </div>
+        `;
+      });
+      
+      grid.innerHTML = htmlString;
+    }
+
+    // semplice escape per evitare XSS (anche se dati fidati)
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function setActiveFilter(category) {
+      filterBtns.forEach(btn => {
+        const cat = btn.getAttribute('data-cat');
+        if (cat === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    function handleCategoryClick(e) {
+      const btn = e.target.closest('.cat-btn');
+      if (!btn) return;
+      const category = btn.getAttribute('data-cat');
+      if (category) {
+        currentCategory = category;
+        setActiveFilter(category);
+        renderGrid();
+      }
+    }
+
+    function handleSearchInput() {
+      currentSearchTerm = searchInput.value;
+      renderGrid();
+    }
+
+    function handleClearSearch() {
+      searchInput.value = '';
+      currentSearchTerm = '';
+      renderGrid();
+      searchInput.focus();
+    }
+
+    function isAdsRoute() {
+      const params = new URLSearchParams(window.location.search);
+      const pathname = window.location.pathname.toLowerCase();
+      const hash = window.location.hash.toLowerCase();
+      return pathname.endsWith('/ads') || params.get('page') === 'ads' || hash === '#ads';
+    }
+
+    function renderRoute() {
+      const showAds = isAdsRoute();
+      directoryView.style.display = showAds ? 'none' : '';
+      adsView.classList.toggle('active', showAds);
+      adsLink.classList.toggle('active', showAds);
+      homeLink.classList.toggle('active', !showAds);
+    }
+
+    function init() {
+      renderGrid();
+      renderRoute();
+      
+      document.getElementById('filterContainer').addEventListener('click', handleCategoryClick);
+      searchInput.addEventListener('input', handleSearchInput);
+      clearBtn.addEventListener('click', handleClearSearch);
+      window.addEventListener('popstate', renderRoute);
+      window.addEventListener('hashchange', renderRoute);
+      
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+        }
+      });
+    }
+
+    init();
+  })();
+</script>
+
+</body>
+</html>
