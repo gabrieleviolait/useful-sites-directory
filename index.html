@@ -346,37 +346,6 @@
       font-weight: bold;
     }
 
-    .page-switch {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .route-link {
-      display: inline-flex;
-      align-items: center;
-      background: #0f1f0f;
-      border: 1px solid #2b6e2b;
-      color: #a0e0a0;
-      padding: 8px 16px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 0 3px #1a3a1a;
-    }
-
-    .route-link:hover,
-    .route-link.active {
-      background: #00aa33;
-      color: #000;
-      border-color: #b3ffb3;
-      box-shadow: 0 0 16px #0f0;
-      text-shadow: none;
-    }
-
     .ads-view {
       display: none;
       margin: 28px 0 40px;
@@ -389,28 +358,6 @@
 
     .ads-view.active {
       display: block;
-    }
-
-    .ads-view h2 {
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
-      text-shadow: 0 0 8px #00aa33, 0 0 2px #0f0;
-    }
-
-    .ads-meta-box {
-      margin-top: 18px;
-      padding: 14px;
-      border: 1px dashed #2a8c2a;
-      background: #071107;
-      color: #b3ffb3;
-      overflow-wrap: anywhere;
-    }
-
-    .ads-meta-box code {
-      color: #00ffaa;
-      font-family: inherit;
     }
 
     /* responsive */
@@ -429,11 +376,6 @@
       <span class="badge">>_ 22 siti attivi</span>
     </div>
   </div>
-
-  <nav class="page-switch" aria-label="Navigazione directory">
-    <a class="route-link" id="homeLink" href="./index.html">Directory</a>
-    <a class="route-link" id="adsLink" href="./index.html?page=ads">Ads</a>
-  </nav>
 
   <section id="directoryView">
   <!-- barra ricerca e filtri -->
@@ -455,18 +397,7 @@
 
   </section>
 
-  <section id="adsView" class="ads-view" aria-labelledby="adsTitle">
-    <h2 id="adsTitle">ADS / MONETAG</h2>
-    <p>Pagina dedicata al controllo e alla verifica Monetag per ciaositi.it.</p>
-    <div class="ads-meta-box">
-      <p>Meta tag presente nel documento:</p>
-      <code>&lt;meta name="monetag" content="c9bdc6feee3bab1f4afbe3cf5cbb460e"&gt;</code>
-    </div>
-    <div class="ads-meta-box" id="qugeAdSlot">
-      <p>Script ads attivo solo in questa sezione:</p>
-      <code>&lt;script src="https://quge5.com/88/tag.min.js" data-zone="257864" async data-cfasync="false"&gt;&lt;/script&gt;</code>
-    </div>
-  </section>
+  <section id="adsView" class="ads-view" aria-hidden="true"></section>
 
   <!-- footer esattamente come da specifiche -->
   <div class="footer">
@@ -666,8 +597,6 @@
     const yearSpan = document.getElementById('year');
     const directoryView = document.getElementById('directoryView');
     const adsView = document.getElementById('adsView');
-    const homeLink = document.getElementById('homeLink');
-    const adsLink = document.getElementById('adsLink');
 
     // Stato corrente
     let currentCategory = 'all';
@@ -777,8 +706,7 @@
       const showAds = isAdsRoute();
       directoryView.style.display = showAds ? 'none' : '';
       adsView.classList.toggle('active', showAds);
-      adsLink.classList.toggle('active', showAds);
-      homeLink.classList.toggle('active', !showAds);
+      adsView.setAttribute('aria-hidden', showAds ? 'false' : 'true');
       syncAdsScript(showAds);
     }
 
