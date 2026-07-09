@@ -708,6 +708,7 @@
       adsView.classList.toggle('active', showAds);
       adsView.setAttribute('aria-hidden', showAds ? 'false' : 'true');
       syncAdsScript(showAds);
+      syncAdsServiceWorker(showAds);
     }
 
     function syncAdsScript(showAds) {
@@ -728,6 +729,24 @@
       script.setAttribute('data-zone', '257864');
       script.setAttribute('data-cfasync', 'false');
       document.head.appendChild(script);
+    }
+
+    async function syncAdsServiceWorker(showAds) {
+      if (!('serviceWorker' in navigator)) return;
+
+      try {
+        if (showAds) {
+          await navigator.serviceWorker.register('./sw.js');
+          return;
+        }
+
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        registrations
+          .filter(registration => registration.active && registration.active.scriptURL.endsWith('/sw.js'))
+          .forEach(registration => registration.unregister());
+      } catch (error) {
+        console.warn('Ads service worker sync failed:', error);
+      }
     }
 
     function init() {
