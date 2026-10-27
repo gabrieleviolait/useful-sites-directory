@@ -2,10 +2,10 @@
 <html lang="it">
 <head>
 <meta name="monetag" content="c9bdc6feee3bab1f4afbe3cf5cbb460e">
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directory · siti</title>
-  <!-- stile "terminale" verde su nero -->
+  <title>CiaoSiti · Directory software, progetti e risorse</title>
+  <meta name="description" content="Directory ragionata di software, download ufficiali, utility, AI locale, sicurezza informatica e progetti web. Ricerca per nome, funzioni, categorie e tag.">
   <style>
     * {
       margin: 0;
@@ -28,7 +28,6 @@
       box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
     }
 
-    /* effetto scanline sottile */
     body::before {
       content: "";
       position: fixed;
@@ -45,7 +44,6 @@
       z-index: 5;
     }
 
-    /* intestazione */
     .header {
       margin-bottom: 2.5rem;
       border-bottom: 2px dashed #2a6b2a;
@@ -90,7 +88,6 @@
       font-size: 0.9rem;
     }
 
-    /* barra di ricerca / filtro */
     .toolbar {
       display: flex;
       gap: 15px;
@@ -191,7 +188,6 @@
       color: #eeffee;
     }
 
-    /* grid siti */
     .site-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -220,7 +216,6 @@
       background: #0f1f0f;
     }
 
-    /* glow animato lieve */
     .site-card::after {
       content: "";
       position: absolute;
@@ -315,7 +310,6 @@
       color: #afd;
     }
 
-    /* footer — mantenuto esattamente come da richiesta + aggiustamenti minimi per coerenza */
     .footer {
       margin-top: 40px;
       padding-top: 25px;
@@ -324,7 +318,6 @@
       text-align: center;
     }
 
-    /* stili inline sono già nel tag p, ma aggiungo un contenitore per centratura */
     .footer p {
       font-size: 12px !important;
       color: #00FD00 !important;
@@ -340,54 +333,65 @@
     .footer a:hover {
       text-shadow: 0 0 8px #0f0;
     }
-
-    /* piccola nota anno dinamico via js */
-    #year {
-      font-weight: bold;
-    }
-
-    .ads-view {
-      display: none;
-      margin: 28px 0 40px;
-      background: #0c150c;
-      border: 1.8px solid #1e5e1e;
-      border-radius: 18px;
-      padding: 1.8rem 1.4rem;
-      box-shadow: 0 6px 0 #041004, 0 0 15px rgba(0, 50, 0, 0.5);
-    }
-
-    .ads-view.active {
-      display: block;
-    }
-
-    .ads-button {
-      display: inline-block;
-      background: #00FD00;
-      border: 1.5px solid #b3ffb3;
-      border-radius: 40px;
-      color: #031003;
-      font-size: 1.2rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      padding: 12px 32px;
-      text-align: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
-
-    .ads-button:hover {
-      background: #00ffaa;
-      box-shadow: 0 0 15px #0f0;
-      color: #000;
-      text-shadow: none;
-    }
-
-    /* responsive */
+    
     @media (max-width: 550px) {
       body { padding: 1rem 0.8rem; margin: 4px; }
       h1 { font-size: 2rem; }
     }
+
+:root {color-scheme:dark;--panel:#0e1a0e;--line:#2c6e2c;--muted:#8bb78b;--glow:#00e878}
+body{max-width:100%;}
+.container{max-width:1440px}
+.header{margin-bottom:1.5rem}
+.header .sub{gap:12px}
+.page-switch{margin:0 0 26px}
+#directoryView .toolbar{display:block;margin-bottom:14px}
+.search-wrapper{max-width:none;margin-bottom:17px}
+.search-wrapper input::placeholder{color:#7da47d}
+.filter-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:20px 0 10px}
+.filter-head h2{font-size:1.03rem;letter-spacing:1.1px;color:#c8f9d1}
+.filter-hint{color:var(--muted);font-size:.83rem}
+.filter-tabs{gap:8px}
+.cat-btn{font-size:.8rem;letter-spacing:0;padding:8px 12px;text-transform:none}
+.cat-btn .count{font-size:.74rem;opacity:.8;margin-left:4px}
+.cat-btn.active{background:#16da67;border-color:#7cffb2;color:#031409}
+.cat-btn:focus-visible,.tag-btn:focus-visible,.search-wrapper button:focus-visible,.sort-select:focus-visible,.mode-btn:focus-visible,.route-link:focus-visible,.visit-link:focus-visible,.reset-btn:focus-visible{outline:2px solid #e8fff0;outline-offset:3px}
+.tag-filters{display:flex;gap:7px;flex-wrap:wrap}
+.tag-btn{background:#101f12;color:#bbefc3;border:1px solid #32683b;padding:5px 10px;border-radius:8px;cursor:pointer;font:inherit;font-size:.82rem}
+.tag-btn:hover{border-color:#54f08a;background:#17391e}
+.tag-btn.active{color:#041807;background:#72e69e;border-color:#baffce}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0 6px}
+.mode-btn,.reset-btn,.sort-select{background:#102014;border:1px solid #367442;border-radius:10px;color:#c4fbd2;padding:9px 12px;cursor:pointer;font:inherit;font-size:.86rem}
+.mode-btn:hover,.reset-btn:hover{background:#183a24}
+.sort-select{color-scheme:dark;min-width:175px}
+.results-line{margin-top:12px;display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:#c7e8ce;font-size:.89rem}
+.results-line strong{color:#00ffaa}
+.active-summary{color:#94be9e;font-size:.78rem}
+.site-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:14px}
+.site-card{padding:1.2rem;box-shadow:0 4px 0 #041004,0 0 10px rgba(0,50,0,.5)}
+.site-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #041004,0 0 22px rgba(0,255,90,.25)}
+.site-icon{font-size:2.1rem;margin-bottom:5px}
+.site-title{font-size:1.24rem;text-decoration:none;line-height:1.3}
+.site-url{font-size:.76rem;word-break:break-word}
+.site-desc{font-size:.9rem}
+.site-tags{margin:8px 0 12px}
+.site-tags .tag-btn{font-size:.69rem;padding:3px 7px;border-radius:6px}
+.site-categories{font-size:.73rem;line-height:1.55;color:#9accaa;margin:4px 0 9px}
+.site-categories span{margin-right:7px}
+.my-label{font-size:.68rem;color:#86ffae;border:1px solid #246e3e;border-radius:6px;padding:2px 7px;margin-left:auto;align-self:flex-start}
+.card-top{display:flex;align-items:flex-start;gap:8px}
+.visit-link{padding:7px 15px;font-size:.84rem;margin-top:auto}
+.more-tags{background:none;color:#7fffa9;border:1px dashed #388c58;border-radius:8px;padding:5px 10px;font:inherit;cursor:pointer;font-size:.78rem}
+.no-results{font-size:1rem;border-radius:12px;padding:2.2rem;line-height:1.65}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:650px){.filter-head{align-items:flex-start}.search-wrapper input{font-size:.95rem}.search-wrapper button{padding:8px 13px;font-size:.77rem}.cat-btn{font-size:.77rem}.controls{align-items:stretch}.results-line{align-items:flex-start}.site-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.site-card,.cat-btn,.tag-btn{transition:none}}
+
+
+#adsView{max-width:660px;margin:36px auto;padding:36px 20px;text-align:center;border:1px solid #2a6e2a;border-radius:16px;background:#0c150c}
+#adsView[hidden]{display:none}
+#adsView .ads-button{display:inline-block;padding:11px 28px;border-radius:40px;border:1px solid #b3ffb3;background:#00fd00;color:#031003;font:700 1rem 'Courier New',monospace;text-decoration:none}
+#adsView .ads-button:hover{background:#00ffaa}
   </style>
 </head>
 <body>
@@ -396,36 +400,35 @@
     <h1>📁 DIRECTORY/ <i>SITI</i></h1>
     <div class="sub">
       <span>🌐 esplora · filtra · connetti</span>
-      <span class="badge">>_ 22 siti attivi</span>
+      <span class="badge">>_ <span id="totalCount">0</span> risorse</span>
     </div>
   </div>
-
-  <section id="directoryView">
-  <!-- barra ricerca e filtri -->
-  <div class="toolbar">
-    <div class="search-wrapper">
-      <input type="text" id="searchInput" placeholder="cerca per nome, url o descrizione..." aria-label="Cerca siti">
-      <button id="clearSearchBtn" aria-label="Pulisci ricerca">⌫ PULISCI</button>
-    </div>
-    <div class="filter-tabs" id="filterContainer">
-      <button class="cat-btn active" data-cat="all">TUTTI</button>
-      <button class="cat-btn" data-cat="tech">💻 TECH</button>
-      <button class="cat-btn" data-cat="design">🎨 DESIGN</button>
-      <button class="cat-btn" data-cat="opensource">📦 OPEN SOURCE</button>
-    </div>
-  </div>
-
-  <!-- griglia dei siti (popolata via js) -->
-  <div id="sitesGrid" class="site-grid"></div>
-
+  <section id="directoryView" aria-label="Directory di risorse">
+    <div class="toolbar">
+      <label class="sr-only" for="searchInput">Cerca risorse per nome, funzionalità o tag</label>
+      <div class="search-wrapper">
+        <input type="search" id="searchInput" autocomplete="off" placeholder="Cerca: duplicati, backup, ISO, VPN, LM Studio..." aria-label="Cerca per nome, funzione, URL o tag">
+        <button type="button" id="clearSearchBtn">⌫ PULISCI</button>
+      </div>
+      <div class="filter-head"><h2>▸ CATEGORIE</h2></div>
+      <div class="filter-tabs" id="filterContainer" role="group" aria-label="Filtra per categorie"></div>
+      <div class="filter-head"><h2>▸ TAG RAPIDI</h2></div>
+      <div class="tag-filters" id="tagContainer" role="group" aria-label="Filtra per tag"></div>
+      <div class="controls">
+        <button type="button" class="mode-btn" id="matchModeBtn" title="Alterna una o tutte le categorie">Categorie: QUALSIASI</button>
+        <label for="sortSelect" class="sr-only">Ordina le risorse</label>
+        <select id="sortSelect" class="sort-select"><option value="featured">In evidenza</option><option value="az">Nome A-Z</option><option value="category">Per categoria</option></select>
+        <button type="button" class="reset-btn" id="resetAllBtn">✕ AZZERA TUTTO</button>
+      </div>
+      <div class="results-line"><span id="resultCount" role="status" aria-live="polite"></span><span id="activeSummary" class="active-summary">Nessun filtro attivo</span></div>
+</div>
+    <div id="sitesGrid" class="site-grid"></div>
   </section>
-
-  <section id="adsView" class="ads-view" aria-hidden="true">
+  <section id="adsView" hidden aria-label="Pubblicità">
     <a class="ads-button" href="https://omg10.com/4/11260660" target="_blank" rel="noopener noreferrer">ads</a>
   </section>
 
-  <!-- footer esattamente come da specifiche -->
-  <div class="footer">
+<div class="footer">
     <p style="font-size: 12px; color: #00FD00; line-height: 1.6;">
       Copyright © <span id="year"></span> Creato da 
       <a href="https://www.gabrieleviola.it/" target="_blank" rel="noopener" style="color: #00FD00; text-decoration: underline;">Gabriele Viola</a> 
@@ -437,363 +440,159 @@
 </div>
 
 <script>
-  (function(){
-    "use strict";
+(() => {
+  'use strict';
+  const sitesData = [{"nome":"Gabriele Viola","url":"https://www.gabrieleviola.it/","descrizione":"Portfolio e sviluppo web. Progetti statici, design minimale e consulenza.","icona":"🌿","categorie":["progetti","sviluppo","formazione"],"tags":["portfolio","sviluppo","statico","mio progetto"],"proprio":true},{"nome":"Strumenti gratuiti online - Gabriele Viola","url":"https://www.gabrieleviola.it/strumenti-utili/","descrizione":"Raccolta dei miei strumenti e delle utility gratuite disponibili online. Per i progetti senza un indirizzo pubblico confermato consulta questa pagina.","icona":"🛠️","categorie":["progetti","utility","formazione"],"tags":["strumenti gratuiti","tool","online","utility","qr code","password","calcolatori","editor","risorse"],"proprio":true},{"nome":"Simulatore campagne Ads","url":"http://ads.gabrieleviola.it/","descrizione":"Calcolatore per stimare budget, CPC e scenari di campagne pubblicitarie online.","icona":"📣","categorie":["progetti","marketing","business","utility"],"tags":["ads","pubblicità","advertising","cpc","annunci","budget","campagne","simulatore","marketing"],"proprio":true},{"nome":"Generatore password","url":"https://password.gabrieleviola.it/","descrizione":"Genera password casuali personalizzando lunghezza e caratteri, direttamente nel browser.","icona":"🔐","categorie":["progetti","utility","cybersecurity","privacy"],"tags":["password","credenziali","generator","generatore","sicurezza","casuale","web crypto"],"proprio":true},{"nome":"Generatore firma email","url":"http://firma.gabrieleviola.it/","descrizione":"Crea firme email personalizzate con contatti, logo e collegamenti social, pronte da copiare.","icona":"✍️","categorie":["progetti","utility","business","design"],"tags":["firma","email","mail","signature","generatore","contatti","logo","professionale"],"proprio":true},{"nome":"Generatore QR Code","url":"http://qr.gabrieleviola.it/","descrizione":"Crea codici QR per collegamenti e testi direttamente online.","icona":"🔲","categorie":["progetti","utility","design"],"tags":["qr","qrcode","codice qr","generatore","link","url","testo","condivisione"],"proprio":true},{"nome":"Editor grafico online","url":"http://editor.gabrieleviola.it/","descrizione":"Editor per modificare immagini, inserire testi e forme ed esportare la grafica dal browser.","icona":"🎨","categorie":["progetti","utility","design"],"tags":["editor","grafica","immagini","foto","editing","testo","forme","download"],"proprio":true},{"nome":"Simulatore interessi","url":"http://interessi.gabrieleviola.it/","descrizione":"Confronta il calcolo degli interessi semplici e composti per importi e periodi diversi.","icona":"📈","categorie":["progetti","utility","business"],"tags":["interessi","calcolo","calcolatore","semplice","composto","capitale","finanza","simulatore"],"proprio":true},{"nome":"MDN Web Docs","url":"https://developer.mozilla.org/","descrizione":"Risorse per sviluppatori, documentazione web aperta. HTML, CSS, JS.","icona":"📘","categorie":["sviluppo","formazione"],"tags":["docs","riferimento","mozilla"],"proprio":false},{"nome":"CodePen","url":"https://codepen.io/","descrizione":"Community front-end, test di snippet e ispirazione creativa.","icona":"✏️","categorie":["sviluppo","design"],"tags":["frontend","social","prototipi"],"proprio":false},{"nome":"Figma","url":"https://www.figma.com/","descrizione":"Design collaborativo di interfacce e prototipazione.","icona":"🎯","categorie":["design","sviluppo"],"tags":["ui","ux","prototipazione"],"proprio":false},{"nome":"Stack Overflow","url":"https://stackoverflow.com/","descrizione":"Domande e risposte per programmatori professionisti e appassionati.","icona":"🧩","categorie":["sviluppo","formazione"],"tags":["qa","community","coding"],"proprio":false},{"nome":"PrivacyTools","url":"https://www.privacytools.io/","descrizione":"Directory di strumenti e guide per privacy e sicurezza digitale.","icona":"🔒","categorie":["cybersecurity","privacy"],"tags":["privacy","sicurezza","guide"],"proprio":false},{"nome":"Awwwards","url":"https://www.awwwards.com/","descrizione":"Premi e ispirazione per web design e creatività digitale.","icona":"🏆","categorie":["design"],"tags":["webdesign","ispirazione","premi"],"proprio":false},{"nome":"Visual Studio Code","url":"https://code.visualstudio.com/","descrizione":"Editor di codice leggero e potente, open source.","icona":"💠","categorie":["sviluppo","download","opensource"],"tags":["editor","sviluppo","tools"],"proprio":false},{"nome":"Coolors","url":"https://coolors.co/","descrizione":"Generatore di palette di colori per design e sviluppo.","icona":"🎨","categorie":["design","utility"],"tags":["colori","palette","strumenti"],"proprio":false},{"nome":"Open Source Initiative","url":"https://opensource.org/","descrizione":"Promozione e tutela dell'open source.","icona":"⚖️","categorie":["opensource","formazione"],"tags":["licenze","opensource","community"],"proprio":false},{"nome":"Adotta un Hacker","url":"https://www.adottaunhacker.it/","descrizione":"Servizi e consulenze nel mondo cybersecurity e sviluppo.","icona":"🛡️","categorie":["progetti","cybersecurity"],"tags":["cybersecurity","hacker","servizi","mio progetto"],"proprio":true},{"nome":"SitoWeb.info","url":"https://sitoweb.info/","descrizione":"Risorse e guide sul mondo dei siti web e presenza online.","icona":"🌐","categorie":["progetti","sviluppo","formazione"],"tags":["web","guide","hosting","mio progetto"],"proprio":true},{"nome":"SitoAbbonamento","url":"https://sitoabbonamento.it/","descrizione":"Progetto dedicato a siti web e servizi in abbonamento.","icona":"💳","categorie":["progetti","business"],"tags":["abbonamenti","business","servizi","mio progetto"],"proprio":true},{"nome":"Crescita Social","url":"https://crescita.social/","descrizione":"Strumenti e strategie per la crescita sui social media.","icona":"📈","categorie":["progetti","marketing"],"tags":["social","marketing","growth","mio progetto"],"proprio":true},{"nome":"Prism Break","url":"https://prism-break.org/en/","descrizione":"Alternative open source ai servizi più diffusi per la privacy.","icona":"🔐","categorie":["opensource","privacy"],"tags":["privacy","opensource","security"],"proprio":false},{"nome":"Linux Journey","url":"https://linuxjourney.org/","descrizione":"Guida interattiva per imparare Linux passo dopo passo.","icona":"🐧","categorie":["linux","formazione"],"tags":["linux","learning","terminal"],"proprio":false},{"nome":"Parrot Security","url":"https://parrotsec.org/","descrizione":"Distribuzione Linux focalizzata su sicurezza e penetration testing.","icona":"🦜","categorie":["linux","cybersecurity","download"],"tags":["linux","security","pentest"],"proprio":false},{"nome":"Kali Linux","url":"https://www.kali.org/","descrizione":"Sistema operativo avanzato per penetration testing e sicurezza.","icona":"🐉","categorie":["linux","cybersecurity","download"],"tags":["linux","hacking","security"],"proprio":false},{"nome":"Security Onion","url":"https://securityonion.net/","descrizione":"Piattaforma open source per monitoraggio e difesa della rete.","icona":"🧅","categorie":["linux","cybersecurity","rete"],"tags":["network","security","monitoring"],"proprio":false},{"nome":"Soluzioni Informatiche (Gumroad)","url":"https://soluzioninformatiche.gumroad.com/","descrizione":"Risorse digitali, guide e strumenti per sviluppo web, sicurezza e crescita online.","icona":"📦","categorie":["progetti","download","formazione"],"tags":["gumroad","risorse","cybersecurity","mio progetto"],"proprio":true},{"nome":"Duel & Fights","url":"https://duelandfights.com/","descrizione":"Gioco strategico di carte e combattimenti, con modalità storia e PvP.","icona":"⚔️","categorie":["progetti","sviluppo"],"tags":["gioco","carte","pvp","pve","web","android","game"],"proprio":true},{"nome":"Famosi.net","url":"https://famosi.net/","descrizione":"Progetto web dedicato a profili, visibilità e presenza digitale.","icona":"⭐","categorie":["progetti","business"],"tags":["brand","vetrina","visibilità","profili","marketing"],"proprio":true},{"nome":"LM Studio - materiali della guida","url":"https://filedn.eu/lbavWeKOQzxFcfS8WSy4cxh/GUIWEBLLSTUDIOLOCAL/","descrizione":"Accesso rapido ai materiali della guida LM Studio ospitati su pCloud.","icona":"📂","categorie":["progetti","ai","formazione","download"],"tags":["lm studio","guida","download","materiali","locale","llm","pcloud"],"proprio":true},{"nome":"Linux Path","url":"https://www.linux-path.com/","descrizione":"Percorsi guidati e risorse didattiche per imparare Linux.","icona":"🧭","categorie":["linux","formazione"],"tags":["linux","terminal","comandi","percorso","esercizi","guida"],"proprio":false},{"nome":"OverTheWire Bandit","url":"https://overthewire.org/wargames/bandit/","descrizione":"Sfide progressive per imparare da terminale concetti fondamentali Linux e SSH.","icona":"🏁","categorie":["linux","cybersecurity","formazione"],"tags":["linux","terminale","ssh","esercizi","gioco","lab"],"proprio":false},{"nome":"Linux Command Library","url":"https://linuxcommandlibrary.com/","descrizione":"Riferimento rapido di comandi Linux con spiegazioni ed esempi.","icona":"📚","categorie":["linux","formazione","utility"],"tags":["linux","comandi","cli","manuale","cheatsheet"],"proprio":false},{"nome":"ExplainShell","url":"https://explainshell.com/","descrizione":"Spiega pezzo per pezzo i comandi da shell Linux.","icona":"💬","categorie":["linux","formazione","utility"],"tags":["linux","shell","comandi","bash","spiegazione","terminale"],"proprio":false},{"nome":"DistroSea","url":"https://distrosea.com/","descrizione":"Prova alcune distribuzioni Linux in una sessione remota via browser.","icona":"🌊","categorie":["linux","formazione","utility"],"tags":["linux","distro","provare","live","sistema","online"],"proprio":false},{"nome":"Killercoda","url":"https://killercoda.com/","descrizione":"Scenari guidati con terminali di laboratorio per Linux, container e cloud.","icona":"🧪","categorie":["linux","formazione","cloud","virtualizzazione"],"tags":["laboratorio","terminal","linux","docker","kubernetes","esercizi"],"proprio":false},{"nome":"Downdetector Italia","url":"https://downdetector.it/","descrizione":"Verifica segnalazioni di disservizi e interruzioni per Internet, piattaforme e app.","icona":"📉","categorie":["rete","utility"],"tags":["down","offline","disservizi","problemi","guasti","stato","iliad","servizi"],"proprio":false},{"nome":"AlternativeTo","url":"https://alternativeto.net/","descrizione":"Catalogo di alternative ai software per piattaforma, funzioni e licenza.","icona":"🔄","categorie":["utility","download","opensource"],"tags":["alternative","software","programmi","opensource","comparazione"],"proprio":false},{"nome":"OpenAlternative","url":"https://openalternative.co/","descrizione":"Directory di possibili alternative open source a strumenti proprietari.","icona":"🗂️","categorie":["opensource","utility","download"],"tags":["opensource","alternative","software","raccoglitore","libero"],"proprio":false},{"nome":"Awesome Selfhosted","url":"https://awesome-selfhosted.net/","descrizione":"Catalogo organizzato di applicazioni e servizi self-hosted, spesso open source.","icona":"🧰","categorie":["opensource","cloud","sviluppo"],"tags":["selfhosted","software","raccoglitore","server","alternativa","hosting"],"proprio":false},{"nome":"F-Droid","url":"https://f-droid.org/","descrizione":"Catalogo di app Android gratuite e open source.","icona":"📱","categorie":["opensource","download","utility","privacy"],"tags":["android","apps","opensource","store","telefono"],"proprio":false},{"nome":"FOSSHub","url":"https://www.fosshub.com/","descrizione":"Directory e portale download per software gratuiti e open source.","icona":"📦","categorie":["download","opensource","utility"],"tags":["software","download","free","open source","installazione"],"proprio":false},{"nome":"Scoop","url":"https://scoop.sh/","descrizione":"Gestore pacchetti a riga di comando per Windows.","icona":"🥄","categorie":["windows","download","opensource","utility"],"tags":["scoop","pacchetti","installare","aggiornare","cli","software"],"proprio":false},{"nome":"Chocolatey","url":"https://chocolatey.org/","descrizione":"Gestione e automazione dell’installazione di pacchetti software Windows.","icona":"🍫","categorie":["windows","download","utility"],"tags":["choco","packages","installazione","aggiornamenti","software"],"proprio":false},{"nome":"winget.run","url":"https://winget.run/","descrizione":"Ricerca rapida dei pacchetti disponibili tramite Windows Package Manager.","icona":"🪟","categorie":["windows","download","utility"],"tags":["winget","app","ricerca","software","pacchetti"],"proprio":false},{"nome":"NirSoft","url":"https://www.nirsoft.net/","descrizione":"Raccolta di piccole utility per diagnosi e gestione di Windows.","icona":"🧰","categorie":["windows","utility","download"],"tags":["nirsoft","diagnostica","recupero","registro","rete","software"],"proprio":false},{"nome":"MajorGeeks","url":"https://www.majorgeeks.com/","descrizione":"Catalogo di software e utility per Windows, con schede e download.","icona":"🛠️","categorie":["download","utility","windows"],"tags":["programmi","software","utility","download","catalogo"],"proprio":false},{"nome":"UptimeRobot","url":"https://uptimerobot.com/","descrizione":"Monitoraggio della disponibilità di siti, servizi e endpoint web.","icona":"🟢","categorie":["rete","utility","cloud"],"tags":["monitoraggio","uptime","sito","offline","alert","servizi"],"proprio":false},{"nome":"Have I Been Pwned - passwords","url":"https://haveibeenpwned.com/Passwords","descrizione":"Controlla se una password compare in archivi di credenziali compromesse, senza inviare la password in chiaro ai sistemi di controllo previsti dal servizio.","icona":"🔐","categorie":["cybersecurity","privacy","utility"],"tags":["password","data breach","sicurezza","credenziali","violazioni"],"proprio":false},{"nome":"Ninite","url":"https://ninite.com/","descrizione":"Installa e aggiorna più software Windows senza gestire ogni installer separatamente.","icona":"📥","categorie":["download","utility","windows"],"tags":["download","installazione","multipla","aggiornamenti","programmi","ninite"],"proprio":false},{"nome":"WinGet - Microsoft Learn","url":"https://learn.microsoft.com/it-it/windows/package-manager/winget/","descrizione":"Gestore pacchetti Windows da riga di comando per installare e aggiornare applicazioni.","icona":"📦","categorie":["windows","utility","download"],"tags":["winget","pacchetti","installer","install","aggiorna","app"],"proprio":false},{"nome":"PortableApps","url":"https://portableapps.com/","descrizione":"Catalogo e piattaforma di applicazioni portabili, utili anche su unità USB.","icona":"💼","categorie":["download","utility","windows"],"tags":["portable","usb","software","programmi","portatili"],"proprio":false},{"nome":"Microsoft Sysinternals","url":"https://learn.microsoft.com/sysinternals/downloads/","descrizione":"Suite ufficiale di utilità di diagnostica Windows: Process Explorer, Autoruns, Procmon e altre.","icona":"🧪","categorie":["windows","utility","download","cybersecurity"],"tags":["sysinternals","diagnostica","process explorer","process monitor","autoruns","sistema"],"proprio":false},{"nome":"PowerToys","url":"https://learn.microsoft.com/it-it/windows/powertoys/","descrizione":"Utility Microsoft per organizzare finestre, rinominare file e migliorare Windows.","icona":"🪟","categorie":["windows","opensource","utility","download"],"tags":["powertoys","rinomina","finestre","keyboard manager","produttività"],"proprio":false},{"nome":"7-Zip","url":"https://www.7-zip.org/","descrizione":"Comprimi ed estrai archivi ZIP, 7z e altri formati.","icona":"🗜️","categorie":["windows","download","utility","opensource"],"tags":["zip","7z","rar","archivi","estrarre","comprimere"],"proprio":false},{"nome":"Notepad++","url":"https://notepad-plus-plus.org/","descrizione":"Editor di testo e codice per Windows con ricerca e sostituzione avanzate.","icona":"📝","categorie":["windows","download","sviluppo","opensource"],"tags":["notepad","editor","testo","codice","regex"],"proprio":false},{"nome":"Everything (voidtools)","url":"https://www.voidtools.com/","descrizione":"Ricerca rapidissima di file e cartelle per nome su Windows.","icona":"🔎","categorie":["windows","utility","download"],"tags":["cercare","file","cartelle","nome","ricerca","indicizzazione"],"proprio":false},{"nome":"WizTree","url":"https://diskanalyzer.com/","descrizione":"Visualizza quali cartelle e file occupano più spazio sul disco.","icona":"🌳","categorie":["windows","utility","download","backup"],"tags":["spazio","disco","gb","file pesanti","cartelle","analisi"],"proprio":false},{"nome":"WinDirStat","url":"https://windirstat.net/","descrizione":"Mostra graficamente l’occupazione dei dischi per cartella e tipo di file.","icona":"📊","categorie":["windows","utility","opensource","download","backup"],"tags":["spazio","disco","dimensioni","visualizzazione","file pesanti"],"proprio":false},{"nome":"dupeGuru","url":"https://dupeguru.voltaicideas.net/","descrizione":"Cerca file duplicati e immagini simili con controlli prima dell’eliminazione.","icona":"🪞","categorie":["windows","linux","utility","download","opensource"],"tags":["duplicati","doppioni","immagini","musica","file","confronta"],"proprio":false},{"nome":"FreeFileSync","url":"https://freefilesync.org/","descrizione":"Confronta cartelle e sincronizza file tra dischi e destinazioni diverse.","icona":"🔁","categorie":["windows","linux","backup","download","utility"],"tags":["sincronizzazione","backup","cartelle","file","copia","confronto"],"proprio":false},{"nome":"Syncthing","url":"https://syncthing.net/","descrizione":"Sincronizzazione peer-to-peer di cartelle tra dispositivi.","icona":"🔄","categorie":["backup","utility","opensource","download","privacy"],"tags":["sincronizzazione","rete","p2p","file","cartelle","dispositivi"],"proprio":false},{"nome":"CrystalDiskInfo","url":"https://crystalmark.info/en/software/crystaldiskinfo/","descrizione":"Controlla informazioni e stato SMART di HDD e SSD su Windows.","icona":"💽","categorie":["windows","utility","download"],"tags":["ssd","hdd","smart","dischi","salute","temperatura","diagnostica"],"proprio":false},{"nome":"smartmontools","url":"https://www.smartmontools.org/","descrizione":"Strumenti da terminale per monitoraggio SMART di dischi HDD e SSD.","icona":"🩺","categorie":["windows","linux","utility","opensource","download"],"tags":["smartctl","hdd","ssd","smart","diagnostica","disco"],"proprio":false},{"nome":"HWiNFO","url":"https://www.hwinfo.com/","descrizione":"Inventario dettagliato di hardware e sensori per PC Windows.","icona":"🖥️","categorie":["windows","utility","download"],"tags":["cpu","gpu","sensori","temperature","hardware","diagnostica"],"proprio":false},{"nome":"GPU-Z","url":"https://www.techpowerup.com/gpuz/","descrizione":"Informazioni dettagliate sulla scheda grafica, driver e bus PCIe.","icona":"🎮","categorie":["windows","utility","download"],"tags":["gpu","scheda video","pcie","vram","sensori"],"proprio":false},{"nome":"Rufus","url":"https://rufus.ie/","descrizione":"Crea supporti USB avviabili partendo da immagini ISO.","icona":"💿","categorie":["windows","utility","download","opensource"],"tags":["usb","iso","boot","installazione","pendrive"],"proprio":false},{"nome":"Ventoy","url":"https://www.ventoy.net/","descrizione":"Prepara chiavette USB multiboot su cui copiare più immagini ISO.","icona":"💾","categorie":["windows","linux","opensource","download","utility"],"tags":["usb","iso","multiboot","avvio","installazione"],"proprio":false},{"nome":"balenaEtcher","url":"https://etcher.balena.io/","descrizione":"Scrive immagini di sistema su USB e schede SD.","icona":"🔥","categorie":["windows","linux","opensource","download","utility"],"tags":["usb","iso","sd","flash","sistema operativo"],"proprio":false},{"nome":"HFS 3 (Rejetto)","url":"https://rejetto.com/hfs/","descrizione":"Condividi file o cartelle dal tuo computer tramite server web locale.","icona":"📤","categorie":["windows","linux","rete","utility","download"],"tags":["hfs","http","file server","condivisione","upload","download"],"proprio":false},{"nome":"PuTTY","url":"https://www.putty.org/","descrizione":"Client SSH e terminale remoto per collegarsi ad apparati e server.","icona":"📡","categorie":["windows","rete","utility","download"],"tags":["ssh","terminal","server","putty","sftp","remoto"],"proprio":false},{"nome":"PDF24 Tools","url":"https://tools.pdf24.org/it/","descrizione":"Unisci, dividi e converti PDF con strumenti web.","icona":"📄","categorie":["utility","design"],"tags":["pdf","unire","dividere","convertire","documenti","online"],"proprio":false},{"nome":"PDF24 Creator","url":"https://www.pdf24.org/it/","descrizione":"Software desktop per creare e gestire PDF su Windows.","icona":"📑","categorie":["windows","utility","download"],"tags":["pdf","unire","convertire","stampante pdf","documenti"],"proprio":false},{"nome":"LibreOffice","url":"https://www.libreoffice.org/","descrizione":"Suite per documenti, fogli di calcolo e presentazioni, alternativa a Office.","icona":"📚","categorie":["windows","linux","opensource","download","utility"],"tags":["word","excel","powerpoint","office","documenti","fogli"],"proprio":false},{"nome":"SumatraPDF","url":"https://www.sumatrapdfreader.org/free-pdf-reader","descrizione":"Lettore leggero di PDF e altri formati documentali per Windows.","icona":"📖","categorie":["windows","utility","opensource","download"],"tags":["pdf","lettore","documenti","ebook","epub"],"proprio":false},{"nome":"VLC","url":"https://www.videolan.org/vlc/","descrizione":"Riproduce video e audio di numerosi formati.","icona":"▶️","categorie":["windows","linux","opensource","download","utility"],"tags":["video","player","multimedia","audio","codec"],"proprio":false},{"nome":"OBS Studio","url":"https://obsproject.com/","descrizione":"Registrazione dello schermo e trasmissioni video.","icona":"🎥","categorie":["windows","linux","opensource","download","utility"],"tags":["registrare","schermo","streaming","video","tutorial","lezioni"],"proprio":false},{"nome":"ShareX","url":"https://getsharex.com/","descrizione":"Screenshot, cattura schermo e strumenti di produttività su Windows.","icona":"📸","categorie":["windows","opensource","utility","download"],"tags":["screenshot","registrazione","cattura","immagini","ocr"],"proprio":false},{"nome":"KeePassXC","url":"https://keepassxc.org/","descrizione":"Gestore locale e open source per salvare password in un database cifrato.","icona":"🔐","categorie":["windows","linux","privacy","cybersecurity","opensource","download"],"tags":["password","vault","cifratura","credenziali","gestione"],"proprio":false},{"nome":"VeraCrypt","url":"https://veracrypt.fr/","descrizione":"Crittografia di contenitori e unità di archiviazione.","icona":"🔒","categorie":["windows","linux","privacy","cybersecurity","opensource","download"],"tags":["cifratura","criptare","disco","volume","password"],"proprio":false},{"nome":"VirtualBox","url":"https://www.virtualbox.org/","descrizione":"Hypervisor desktop per creare e gestire macchine virtuali.","icona":"📦","categorie":["virtualizzazione","windows","linux","opensource","download"],"tags":["virtual machine","vm","vbox","hypervisor","nat","snapshot"],"proprio":false},{"nome":"Proxmox VE","url":"https://www.proxmox.com/en/proxmox-virtual-environment/overview","descrizione":"Piattaforma per virtualizzazione di server con macchine virtuali e container.","icona":"🖥️","categorie":["virtualizzazione","linux","opensource","download"],"tags":["proxmox","vm","hypervisor","kvm","lxc","server"],"proprio":false},{"nome":"Linux Mint","url":"https://linuxmint.com/","descrizione":"Distribuzione Linux desktop adatta a uso quotidiano e laboratori VM.","icona":"🌿","categorie":["linux","virtualizzazione","download","opensource"],"tags":["linux mint","iso","sistema operativo","desktop","vm"],"proprio":false},{"nome":"Ubuntu","url":"https://ubuntu.com/download","descrizione":"Distribuzione Linux per desktop, server e ambienti cloud.","icona":"🟠","categorie":["linux","download","opensource"],"tags":["linux","ubuntu","iso","server","desktop"],"proprio":false},{"nome":"Windows 11 Download","url":"https://www.microsoft.com/software-download/windows11","descrizione":"Pagina ufficiale Microsoft per ottenere ISO e strumenti di installazione Windows 11.","icona":"🪟","categorie":["windows","download"],"tags":["microsoft","iso","installazione","sistema operativo","media creation tool"],"proprio":false},{"nome":"Wireshark","url":"https://www.wireshark.org/","descrizione":"Analizzatore di pacchetti per diagnostica e studio del traffico di rete.","icona":"🦈","categorie":["rete","cybersecurity","download","opensource"],"tags":["packet capture","dns","tcp","pcap","analisi","rete"],"proprio":false},{"nome":"Nmap","url":"https://nmap.org/","descrizione":"Scansione di host e porte per inventario e verifica delle reti autorizzate.","icona":"🧭","categorie":["rete","cybersecurity","download","opensource"],"tags":["nmap","scanner","porte","host","rete","discovery"],"proprio":false},{"nome":"GNS3","url":"https://www.gns3.com/","descrizione":"Simulazione ed emulazione di reti con apparati e sistemi virtuali.","icona":"🕸️","categorie":["rete","virtualizzazione","download"],"tags":["gns3","laboratorio","router","switch","network","simulatore"],"proprio":false},{"nome":"Cisco Packet Tracer","url":"https://www.netacad.com/cisco-packet-tracer","descrizione":"Simulatore didattico di reti e configurazione di apparati Cisco.","icona":"📶","categorie":["rete","formazione","download"],"tags":["cisco","packet tracer","router","switch","vlans","simulazione"],"proprio":false},{"nome":"pfSense","url":"https://www.pfsense.org/","descrizione":"Firewall e router software per reti e laboratori virtuali.","icona":"🧱","categorie":["rete","cybersecurity","virtualizzazione","download"],"tags":["firewall","router","vpn","nat","pfsense"],"proprio":false},{"nome":"WireGuard","url":"https://www.wireguard.com/","descrizione":"Protocollo VPN moderno e software client/server.","icona":"🔗","categorie":["rete","cybersecurity","privacy","opensource","download"],"tags":["vpn","tunnel","cifratura","wireguard","accesso remoto"],"proprio":false},{"nome":"OpenVPN","url":"https://openvpn.net/community/","descrizione":"Software VPN open source per accesso remoto e collegamenti di rete.","icona":"🚇","categorie":["rete","cybersecurity","privacy","opensource","download"],"tags":["vpn","openvpn","tunnel","certificati","remoto"],"proprio":false},{"nome":"iperf3","url":"https://software.es.net/iperf/","descrizione":"Misura la banda effettiva tra due host con test TCP e UDP.","icona":"📏","categorie":["rete","utility","opensource","download"],"tags":["iperf3","throughput","banda","prestazioni","tcp","udp","velocità"],"proprio":false},{"nome":"Cloudflare","url":"https://www.cloudflare.com/","descrizione":"Servizi DNS, CDN, protezione web, Pages e Workers.","icona":"☁️","categorie":["cloud","rete","cybersecurity","sviluppo"],"tags":["dns","cdn","workers","pages","hosting","redirect"],"proprio":false},{"nome":"Docker","url":"https://www.docker.com/","descrizione":"Piattaforma per eseguire applicazioni in container.","icona":"🐳","categorie":["sviluppo","virtualizzazione","download"],"tags":["docker","container","compose","server","devops"],"proprio":false},{"nome":"LM Studio","url":"https://lmstudio.ai/","descrizione":"Scarica ed esegui modelli linguistici in locale su computer compatibili.","icona":"🤖","categorie":["ai","download","windows"],"tags":["lm studio","llm","offline","modelli locali","chat","server api"],"proprio":false},{"nome":"Ollama","url":"https://ollama.com/","descrizione":"Esegui e gestisci modelli AI locali da terminale o tramite API.","icona":"🦙","categorie":["ai","download","sviluppo"],"tags":["ollama","llm","locale","modelli","api","chat"],"proprio":false},{"nome":"Open WebUI","url":"https://openwebui.com/","descrizione":"Interfaccia web per modelli AI locali e provider compatibili.","icona":"💬","categorie":["ai","opensource","sviluppo"],"tags":["open webui","ollama","chat","interfaccia","rag","llm"],"proprio":false},{"nome":"Hugging Face","url":"https://huggingface.co/models","descrizione":"Catalogo di modelli AI, dataset e risorse della community.","icona":"🤗","categorie":["ai","sviluppo","cloud"],"tags":["modelli","llm","huggingface","download","quantizzazione","gguf"],"proprio":false},{"nome":"AnythingLLM","url":"https://anythingllm.com/","descrizione":"Workspace per chat con documenti e modelli linguistici.","icona":"🧠","categorie":["ai","download","utility"],"tags":["llm","rag","documenti","chat","locale","knowledge base"],"proprio":false},{"nome":"Jan","url":"https://jan.ai/","descrizione":"Applicazione per chat con modelli AI utilizzabili localmente.","icona":"✨","categorie":["ai","download","opensource"],"tags":["jan ai","llm","locale","offline","chat"],"proprio":false},{"nome":"MITRE ATT&CK","url":"https://attack.mitre.org/","descrizione":"Base di conoscenza su tecniche e tattiche di attacco informatico.","icona":"🎯","categorie":["cybersecurity","formazione"],"tags":["mitre","attack","ttp","soc","threat intelligence","cti"],"proprio":false},{"nome":"OWASP","url":"https://owasp.org/","descrizione":"Risorse e progetti di riferimento per la sicurezza delle applicazioni.","icona":"🛡️","categorie":["cybersecurity","opensource","formazione","sviluppo"],"tags":["owasp","web security","appsec","top 10","vulnerabilità"],"proprio":false},{"nome":"Wazuh","url":"https://wazuh.com/","descrizione":"Piattaforma di sicurezza per raccolta eventi, rilevamento e monitoraggio degli endpoint.","icona":"🦉","categorie":["cybersecurity","linux","opensource"],"tags":["wazuh","siem","edr","soc","log","monitoraggio"],"proprio":false},{"nome":"VirusTotal","url":"https://www.virustotal.com/gui/home/upload","descrizione":"Analisi di file, hash e URL tramite motori e informazioni di sicurezza.","icona":"🧬","categorie":["cybersecurity","utility"],"tags":["virus","malware","analisi","hash","url","ioc","security"],"proprio":false},{"nome":"Have I Been Pwned","url":"https://haveibeenpwned.com/","descrizione":"Controllo della presenza di indirizzi email in violazioni di dati note.","icona":"📨","categorie":["cybersecurity","privacy","utility"],"tags":["data breach","email","account","password","violazioni"],"proprio":false},{"nome":"CyberChef","url":"https://gchq.github.io/CyberChef/","descrizione":"Strumento nel browser per conversioni, codifiche, hash e analisi dei dati.","icona":"👨‍🍳","categorie":["cybersecurity","utility","opensource"],"tags":["base64","hash","encoding","decoding","conversione","forensics"],"proprio":false},{"nome":"urlscan.io","url":"https://urlscan.io/","descrizione":"Analisi di pagine web e URL con informazioni su richieste e risorse caricate.","icona":"🌍","categorie":["cybersecurity","utility"],"tags":["urlscan","osint","url","analisi","sito","rete"],"proprio":false},{"nome":"OSINT Framework","url":"https://osintframework.com/","descrizione":"Raccolta di risorse per ricerche OSINT e investigazioni su fonti pubbliche.","icona":"🕵️","categorie":["cybersecurity","formazione"],"tags":["osint","ricerca","investigazione","cti","risorse"],"proprio":false},{"nome":"NVD","url":"https://nvd.nist.gov/","descrizione":"Database NIST delle vulnerabilità con record CVE e informazioni correlate.","icona":"📋","categorie":["cybersecurity","formazione"],"tags":["cve","cvss","vulnerabilità","nist","security"],"proprio":false},{"nome":"Proxmox Backup Server","url":"https://www.proxmox.com/en/proxmox-backup-server/overview","descrizione":"Backup e ripristino per infrastrutture virtualizzate e host supportati.","icona":"💾","categorie":["backup","linux","virtualizzazione","opensource"],"tags":["pbs","proxmox","backup","vm","deduplica","snapshot"],"proprio":false},{"nome":"Veeam Backup","url":"https://www.veeam.com/","descrizione":"Soluzioni di backup e ripristino per sistemi, macchine virtuali e ambienti cloud.","icona":"🛟","categorie":["backup","virtualizzazione"],"tags":["veeam","backup","recovery","workload","server","vm"],"proprio":false},{"nome":"Restic","url":"https://restic.net/","descrizione":"Backup cifrati e deduplicati gestibili da riga di comando.","icona":"🗃️","categorie":["backup","linux","windows","opensource","download"],"tags":["restic","backup","cifratura","repository","restore"],"proprio":false},{"nome":"BorgBackup","url":"https://www.borgbackup.org/","descrizione":"Software open source per backup deduplicati e cifrati.","icona":"📦","categorie":["backup","linux","opensource"],"tags":["borg","backup","deduplica","cifratura","ripristino"],"proprio":false},{"nome":"Canva","url":"https://www.canva.com/","descrizione":"Creazione di slide, infografiche, immagini e materiali didattici.","icona":"🎨","categorie":["design","formazione","utility"],"tags":["canva","presentazioni","slide","grafica","infografiche"],"proprio":false},{"nome":"diagrams.net (draw.io)","url":"https://app.diagrams.net/","descrizione":"Editor gratuito per diagrammi di rete, flowchart e architetture.","icona":"📐","categorie":["design","rete","utility","formazione"],"tags":["drawio","diagrammi","flowchart","schemi","reti","osi"],"proprio":false},{"nome":"Excalidraw","url":"https://excalidraw.com/","descrizione":"Lavagna per disegni, schemi e diagrammi collaborativi.","icona":"✍️","categorie":["design","formazione","opensource","utility"],"tags":["lavagna","diagrammi","sketch","schemi"],"proprio":false},{"nome":"regex101","url":"https://regex101.com/","descrizione":"Tester interattivo di espressioni regolari con spiegazioni e debug.","icona":"🧮","categorie":["sviluppo","utility"],"tags":["regex","espressioni regolari","matching","testo","codice"],"proprio":false},{"nome":"JSONLint","url":"https://jsonlint.com/","descrizione":"Validazione e formattazione di documenti JSON.","icona":"🧾","categorie":["sviluppo","utility"],"tags":["json","validare","formattare","parser"],"proprio":false},{"nome":"Can I use","url":"https://caniuse.com/","descrizione":"Controlla la compatibilità delle funzionalità web tra browser.","icona":"🌐","categorie":["sviluppo","utility"],"tags":["html","css","javascript","browser","compatibilità"],"proprio":false},{"nome":"Node.js","url":"https://nodejs.org/en/download","descrizione":"Runtime JavaScript con strumenti per sviluppo e server.","icona":"🟢","categorie":["sviluppo","download","opensource"],"tags":["node","npm","javascript","backend","server"],"proprio":false},{"nome":"Python","url":"https://www.python.org/downloads/","descrizione":"Linguaggio e runtime Python, utilizzato per scripting e automazione.","icona":"🐍","categorie":["sviluppo","download","opensource"],"tags":["python","pip","script","programmazione","automazione"],"proprio":false},{"nome":"Git","url":"https://git-scm.com/downloads","descrizione":"Sistema di versionamento distribuito per codice e progetti.","icona":"🌱","categorie":["sviluppo","opensource","download"],"tags":["git","versionamento","repository","commit","clone"],"proprio":false}];
+  const categories = [["progetti","🚀","Miei progetti"],["download","⬇️","Download"],["utility","🧰","Utility"],["windows","🪟","Windows"],["linux","🐧","Linux"],["sviluppo","💻","Sviluppo"],["cybersecurity","🛡️","Cybersecurity"],["rete","🌐","Reti"],["virtualizzazione","🖥️","Virtualizzazione"],["ai","🤖","AI locale"],["backup","💾","Backup e dati"],["design","🎨","Design"],["opensource","📦","Open source"],["cloud","☁️","Cloud"],["formazione","📚","Formazione"],["privacy","🔒","Privacy"],["business","📈","Business"],["marketing","📣","Marketing"]];
+  const categoryMap = new Map(categories.map(([id,icon,name]) => [id, {icon,name}]));
+  const byId = id => document.getElementById(id);
+  const ui = {grid:byId('sitesGrid'),input:byId('searchInput'),cats:byId('filterContainer'),tags:byId('tagContainer'),count:byId('resultCount'),active:byId('activeSummary'),mode:byId('matchModeBtn'),sort:byId('sortSelect')};
+  const normalize = s => String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  const tokenize = s => normalize(s).split(/\s+/).filter(Boolean);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const urlOf = u => { try { const x=new URL(u,window.location.href); return ['https:','http:','file:'].includes(x.protocol)?x.href:'#'; } catch {return '#';} };
+  const params = new URLSearchParams(window.location.search);
+  const activeCats = new Set((params.get('cats')||'').split(',').filter(c => categoryMap.has(c)));
+  const allTags = new Map();
+  sitesData.forEach(s => s.tags.forEach(t => allTags.set(t,(allTags.get(t)||0)+1)));
+  const activeTags = new Set((params.get('tags')||'').split(',').map(normalize).filter(t => allTags.has(t)));
+  const filterState = {q:params.get('q')||'',mode:params.get('match')==='all'?'all':'any',sort:['az','category'].includes(params.get('sort'))?params.get('sort'):'featured',expandTags:false};
+  ui.input.value=filterState.q;ui.sort.value=filterState.sort;
+  byId('totalCount').textContent=sitesData.length;
+  byId('year').textContent=new Date().getFullYear();
 
-    // ---------- DATI DIRECTORY (siti esempio) ----------
-    const sitesData = [
-      {
-        nome: "Gabriele Viola",
-        url: "https://www.gabrieleviola.it/",
-        descrizione: "Portfolio e sviluppo web. Progetti statici, design minimale e consulenza.",
-        icona: "🌿",
-        categoria: "tech",
-        tags: ["portfolio", "sviluppo", "statico","personale"]
-      },
-      {
-        nome: "MDN Web Docs",
-        url: "https://developer.mozilla.org/",
-        descrizione: "Risorse per sviluppatori, documentazione web aperta. HTML, CSS, JS.",
-        icona: "📘",
-        categoria: "tech",
-        tags: ["docs", "riferimento", "mozilla"]
-      },
-      {
-        nome: "CodePen",
-        url: "https://codepen.io/",
-        descrizione: "Community front-end, test di snippet e ispirazione creativa.",
-        icona: "✏️",
-        categoria: "design",
-        tags: ["frontend", "social", "prototipi"]
-      },
-      {
-        nome: "GitHub",
-        url: "https://github.com/",
-        descrizione: "Piattaforma per lo sviluppo collaborativo e versionamento.",
-        icona: "🐙",
-        categoria: "opensource",
-        tags: ["git", "repo", "opensource"]
-      },
-      {
-        nome: "Figma",
-        url: "https://www.figma.com/",
-        descrizione: "Design collaborativo di interfacce e prototipazione.",
-        icona: "🎯",
-        categoria: "design",
-        tags: ["ui", "ux", "prototipazione"]
-      },
-      {
-        nome: "Stack Overflow",
-        url: "https://stackoverflow.com/",
-        descrizione: "Domande e risposte per programmatori professionisti e appassionati.",
-        icona: "🧩",
-        categoria: "tech",
-        tags: ["qa", "community", "coding"]
-      },
-      {
-        nome: "PrivacyTools",
-        url: "https://www.privacytools.io/",
-        descrizione: "Strumenti e guide per la protezione della privacy online.",
-        icona: "🔒",
-        categoria: "tech",
-        tags: ["privacy", "sicurezza", "guide"]
-      },
-      {
-        nome: "Awwwards",
-        url: "https://www.awwwards.com/",
-        descrizione: "Premi e ispirazione per web design e creatività digitale.",
-        icona: "🏆",
-        categoria: "design",
-        tags: ["webdesign", "ispirazione", "premi"]
-      },
-      {
-        nome: "VSCode",
-        url: "https://code.visualstudio.com/",
-        descrizione: "Editor di codice leggero e potente, open source.",
-        icona: "💠",
-        categoria: "opensource",
-        tags: ["editor", "sviluppo", "tools"]
-      },
-      
-      {
-        nome: "Coolors",
-        url: "https://coolors.co/",
-        descrizione: "Generatore di palette di colori per design e sviluppo.",
-        icona: "🎨",
-        categoria: "design",
-        tags: ["colori", "palette", "strumenti"]
-      },
-      {
-        nome: "Open Source Initiative",
-        url: "https://opensource.org/",
-        descrizione: "Promozione e tutela dell'open source.",
-        icona: "⚖️",
-        categoria: "opensource",
-        tags: ["licenze", "opensource", "community"]
-      },
-	  
-	  {
-  nome: "Adotta un Hacker",
-  url: "https://www.adottaunhacker.it/",
-  descrizione: "Servizi e consulenze nel mondo cybersecurity e sviluppo.",
-  icona: "🛡️",
-  categoria: "tech",
-  tags: ["cybersecurity", "hacker", "servizi","personale"]
-},
-{
-  nome: "SitoWeb.info",
-  url: "https://sitoweb.info/",
-  descrizione: "Risorse e guide sul mondo dei siti web e presenza online.",
-  icona: "🌐",
-  categoria: "tech",
-  tags: ["web", "guide", "hosting","personale"]
-},
-{
-  nome: "SitoAbbonamento",
-  url: "https://sitoabbonamento.it/",
-  descrizione: "Piattaforma per la gestione di servizi in abbonamento.",
-  icona: "💳",
-  categoria: "tech",
-  tags: ["abbonamenti", "business", "servizi","personale"]
-},
-{
-  nome: "Crescita Social",
-  url: "https://crescita.social/",
-  descrizione: "Strumenti e strategie per la crescita sui social media.",
-  icona: "📈",
-  categoria: "design",
-  tags: ["social", "marketing", "growth","personale"]
-},
-{
-  nome: "Prism Break",
-  url: "https://prism-break.org/en/",
-  descrizione: "Alternative open source ai servizi più diffusi per la privacy.",
-  icona: "🔐",
-  categoria: "opensource",
-  tags: ["privacy", "opensource", "security"]
-},
-{
-  nome: "Linux Journey",
-  url: "https://linuxjourney.org/",
-  descrizione: "Guida interattiva per imparare Linux passo dopo passo.",
-  icona: "🐧",
-  categoria: "opensource",
-  tags: ["linux", "learning", "terminal"]
-},
-{
-  nome: "Parrot Security",
-  url: "https://parrotsec.org/",
-  descrizione: "Distribuzione Linux focalizzata su sicurezza e penetration testing.",
-  icona: "🦜",
-  categoria: "opensource",
-  tags: ["linux", "security", "pentest"]
-},
-{
-  nome: "Kali Linux",
-  url: "https://www.kali.org/",
-  descrizione: "Sistema operativo avanzato per penetration testing e sicurezza.",
-  icona: "🐉",
-  categoria: "opensource",
-  tags: ["linux", "hacking", "security"]
-},
-{
-  nome: "Security Onion",
-  url: "https://securityonionsolutions.com/",
-  descrizione: "Piattaforma open source per monitoraggio e difesa della rete.",
-  icona: "🧅",
-  categoria: "opensource",
-  tags: ["network", "security", "monitoring"]
-},
-{
-  nome: "Soluzioni Informatiche (Gumroad)",
-  url: "https://soluzioninformatiche.gumroad.com/",
-  descrizione: "Risorse digitali, guide e strumenti per sviluppo web, sicurezza e crescita online.",
-  icona: "📦",
-  categoria: "tech",
-  tags: ["gumroad", "risorse", "cybersecurity","personale"]
-}
-    ];
+  const synonymGroups=[['doppioni','duplicati'],['scaricare','download'],['installare','installazione'],['macchina virtuale','vm','virtual machine'],['fotografie','immagini','foto'],['archiviazione','storage','disco'],['cifrare','crittografia','cifratura'],['rete','network','networking'],['intelligenza artificiale','ai','llm'],['rinominare','rinomina'],['codice qr','qr code','qr']];
+  function expandTerm(term){
+    const group=synonymGroups.find(g=>g.some(v=>normalize(v)===term));
+    return group?group.map(normalize):[term];
+  }
+  function searchable(s){return normalize([s.nome,s.url,s.descrizione,...s.tags,...s.categorie.map(c=>categoryMap.get(c)?.name||c)].join(' '));}
+  sitesData.forEach(s => s._search=searchable(s));
+  const tagCounts=[...allTags.entries()].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'it'));
+  const priorities=['download','windows','linux','backup','cybersecurity','vm','llm','qr','pdf','duplicati','utility','formazione','rete','vpn','opensource','progetti','screenshot','software'];
+  const topTags=[...new Set([...priorities.filter(x=>allTags.has(x)),...tagCounts.map(x=>x[0])])];
+  function categoriesMarkup(){
+    ui.cats.innerHTML=`<button type="button" class="cat-btn ${activeCats.size?'':'active'}" data-cat="all" aria-pressed="${!activeCats.size}">TUTTE LE RISORSE <span class="count">${sitesData.length}</span></button>` +
+      categories.map(([id,ico,name])=>{const n=sitesData.filter(s=>s.categorie.includes(id)).length;return `<button type="button" class="cat-btn ${activeCats.has(id)?'active':''}" data-cat="${esc(id)}" aria-pressed="${activeCats.has(id)}">${ico} ${esc(name)} <span class="count">${n}</span></button>`}).join('');
+  }
+  function tagsMarkup(){
+    const limit=filterState.expandTags?topTags.length:24;
+    const visible=[...new Set([...activeTags,...topTags.slice(0,limit)])];
+    ui.tags.innerHTML=visible.map(t=>`<button type="button" class="tag-btn ${activeTags.has(t)?'active':''}" data-tag="${esc(t)}" aria-pressed="${activeTags.has(t)}">#${esc(t)} <span aria-hidden="true">${allTags.get(t)}</span></button>`).join('')+
+    `<button type="button" id="moreTagsBtn" class="more-tags">${filterState.expandTags?'Meno tag':'Tutti i tag ('+allTags.size+')'}</button>`;
+  }
+  function filteredSites(){
+    const q=tokenize(filterState.q);
+    return sitesData.filter(s=>{
+      const cats=[...activeCats];
+      if(cats.length && !(filterState.mode==='all'?cats.every(c=>s.categorie.includes(c)):cats.some(c=>s.categorie.includes(c))))return false;
+      if([...activeTags].some(t=>!s.tags.includes(t)))return false;
+      return q.every(term=>expandTerm(term).some(alias=>s._search.includes(alias)));
+    }).sort((a,b)=>{
+      if(filterState.sort==='az')return a.nome.localeCompare(b.nome,'it');
+      if(filterState.sort==='category')return (a.categorie[0]||'').localeCompare(b.categorie[0]||'','it')||a.nome.localeCompare(b.nome,'it');
 
-    // Riferimenti DOM
-    const grid = document.getElementById('sitesGrid');
-    const searchInput = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearSearchBtn');
-    const filterBtns = document.querySelectorAll('.cat-btn');
-    const yearSpan = document.getElementById('year');
-    const directoryView = document.getElementById('directoryView');
-    const adsView = document.getElementById('adsView');
-
-    // Stato corrente
-    let currentCategory = 'all';
-    let currentSearchTerm = '';
-
-    // Imposta anno nel footer (già fatto inline, ma assicuriamoci)
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // ---------- RENDER funzione principale ----------
-    function renderGrid() {
-      // Filtra per categoria e termine di ricerca
-      const filtered = sitesData.filter(site => {
-        // filtro categoria
-        if (currentCategory !== 'all' && site.categoria !== currentCategory) {
-          return false;
-        }
-        // filtro testo (case insensitive)
-        if (currentSearchTerm.trim() !== '') {
-          const term = currentSearchTerm.trim().toLowerCase();
-          const inNome = site.nome.toLowerCase().includes(term);
-          const inUrl = site.url.toLowerCase().includes(term);
-          const inDesc = site.descrizione.toLowerCase().includes(term);
-          const inTags = site.tags.some(t => t.toLowerCase().includes(term));
-          if (!(inNome || inUrl || inDesc || inTags)) return false;
-        }
-        return true;
-      });
-
-      // Se nessun risultato
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="no-results">⚠️ NESSUN SITO TROVATO · prova un altro filtro</div>`;
-        return;
-      }
-
-      // Genera HTML cards
-      let htmlString = '';
-      filtered.forEach(site => {
-        // crea tag html
-        const tagsHtml = site.tags.map(t => `<span class="tag">#${t}</span>`).join('');
-        
-        htmlString += `
-          <div class="site-card">
-            <div class="site-icon">${site.icona}</div>
-            <div class="site-title">${escapeHtml(site.nome)}</div>
-            <div class="site-url">${escapeHtml(site.url)}</div>
-            <div class="site-desc">${escapeHtml(site.descrizione)}</div>
-            <div class="site-tags">${tagsHtml}</div>
-            <a href="${escapeHtml(site.url)}" target="_blank" rel="noopener noreferrer" class="visit-link">VISITA →</a>
-          </div>
-        `;
-      });
-      
-      grid.innerHTML = htmlString;
-    }
-
-    // semplice escape per evitare XSS (anche se dati fidati)
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    function setActiveFilter(category) {
-      filterBtns.forEach(btn => {
-        const cat = btn.getAttribute('data-cat');
-        if (cat === category) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-    }
-
-    function handleCategoryClick(e) {
-      const btn = e.target.closest('.cat-btn');
-      if (!btn) return;
-      const category = btn.getAttribute('data-cat');
-      if (category) {
-        currentCategory = category;
-        setActiveFilter(category);
-        renderGrid();
-      }
-    }
-
-    function handleSearchInput() {
-      currentSearchTerm = searchInput.value;
-      renderGrid();
-    }
-
-    function handleClearSearch() {
-      searchInput.value = '';
-      currentSearchTerm = '';
-      renderGrid();
-      searchInput.focus();
-    }
-
-    function isAdsRoute() {
-      const params = new URLSearchParams(window.location.search);
-      const pathname = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      return pathname.endsWith('/ads') || params.get('page') === 'ads' || hash === '#ads';
-    }
-
-    function renderRoute() {
-      const showAds = isAdsRoute();
-      directoryView.style.display = showAds ? 'none' : '';
-      adsView.classList.toggle('active', showAds);
-      adsView.setAttribute('aria-hidden', showAds ? 'false' : 'true');
-      syncAdsScript(showAds);
-      syncAdsServiceWorker(showAds);
-    }
-
-    function syncAdsScript(showAds) {
-      const scriptId = 'quge-ads-script';
-      const existingScript = document.getElementById(scriptId);
-
-      if (!showAds) {
-        if (existingScript) existingScript.remove();
-        return;
-      }
-
-      if (existingScript) return;
-
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = 'https://quge5.com/88/tag.min.js';
-      script.async = true;
-      script.setAttribute('data-zone', '257864');
-      script.setAttribute('data-cfasync', 'false');
-      document.head.appendChild(script);
-    }
-
-    async function syncAdsServiceWorker(showAds) {
-      if (!('serviceWorker' in navigator)) return;
-
-      try {
-        if (showAds) {
-          await navigator.serviceWorker.register('./sw.js');
-          return;
-        }
-
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        registrations
-          .filter(registration => registration.active && registration.active.scriptURL.endsWith('/sw.js'))
-          .forEach(registration => registration.unregister());
-      } catch (error) {
-        console.warn('Ads service worker sync failed:', error);
-      }
-    }
-
-    function init() {
-      renderGrid();
-      renderRoute();
-      
-      document.getElementById('filterContainer').addEventListener('click', handleCategoryClick);
-      searchInput.addEventListener('input', handleSearchInput);
-      clearBtn.addEventListener('click', handleClearSearch);
-      window.addEventListener('popstate', renderRoute);
-      window.addEventListener('hashchange', renderRoute);
-      
-      searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-        }
-      });
-    }
-
-    init();
-  })();
+      const qa=normalize(filterState.q);
+      const score=s=>(s.proprio?3:0)+(qa&&normalize(s.nome).includes(qa)?4:0);
+      return score(b)-score(a)||a.nome.localeCompare(b.nome,'it');
+    });
+  }
+  function renderGrid(){
+    const list=filteredSites();
+    ui.count.innerHTML=`<strong>${list.length}</strong> risorse trovate su ${sitesData.length}`;
+    const parts=[];
+    if(filterState.q.trim())parts.push('Ricerca: '+filterState.q.trim());
+    if(activeCats.size)parts.push('Categorie: '+[...activeCats].map(c=>categoryMap.get(c)?.name||c).join(', '));
+    if(activeTags.size)parts.push('Tag: '+[...activeTags].map(t=>'#'+t).join(', '));
+    ui.active.textContent=parts.join(' · ')||'Nessun filtro attivo';
+    ui.mode.textContent='Categorie: '+(filterState.mode==='all'?'TUTTE (AND)':'QUALSIASI (OR)');
+    ui.mode.setAttribute('aria-pressed',String(filterState.mode==='all'));
+    if(!list.length){ui.grid.innerHTML='<div class="no-results">🔍 Nessun risultato con questi filtri. Prova un termine diverso oppure premi «AZZERA TUTTO».</div>';return;}
+    ui.grid.innerHTML=list.map(s=>`<article class="site-card">
+      <div class="card-top"><div class="site-icon" aria-hidden="true">${esc(s.icona)}</div>${s.proprio?'<span class="my-label">PROGETTO</span>':''}</div>
+      <h3 class="site-title">${esc(s.nome)}</h3>
+      <div class="site-url">${esc(s.url)}</div>
+      <p class="site-desc">${esc(s.descrizione)}</p>
+      <div class="site-categories">${s.categorie.map(c=>`<span>${esc(categoryMap.get(c)?.icon||'•')} ${esc(categoryMap.get(c)?.name||c)}</span>`).join('')}</div>
+      <div class="site-tags">${s.tags.slice(0,7).map(t=>`<button type="button" class="tag-btn ${activeTags.has(t)?'active':''}" data-tag="${esc(t)}" aria-label="Filtra per tag ${esc(t)}" aria-pressed="${activeTags.has(t)}">#${esc(t)}</button>`).join('')}</div>
+      <a href="${esc(urlOf(s.url))}" target="_blank" rel="noopener noreferrer" class="visit-link" aria-label="Apri ${esc(s.nome)} in una nuova scheda">APRI RISORSA ↗</a>
+    </article>`).join('');
+  }
+  function saveFilters(){
+    const u=new URL(window.location.href);
+    for(const x of ['q','cats','tags','match','sort'])u.searchParams.delete(x);
+    if(filterState.q.trim())u.searchParams.set('q',filterState.q.trim());
+    if(activeCats.size)u.searchParams.set('cats',[...activeCats].join(','));
+    if(activeTags.size)u.searchParams.set('tags',[...activeTags].join(','));
+    if(filterState.mode==='all')u.searchParams.set('match','all');
+    if(filterState.sort!=='featured')u.searchParams.set('sort',filterState.sort);
+    try{history.replaceState(null,'',u.href);}catch{  }
+  }
+  function update(){categoriesMarkup();tagsMarkup();renderGrid();saveFilters();}
+  ui.cats.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-cat]');if(!b)return;
+    const c=b.dataset.cat;
+    if(c==='all')activeCats.clear();else if(activeCats.has(c))activeCats.delete(c);else activeCats.add(c);
+    update();
+  });
+  const toggleTag=t=>{if(activeTags.has(t))activeTags.delete(t);else activeTags.add(t);update();};
+  ui.tags.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='moreTagsBtn'){filterState.expandTags=!filterState.expandTags;tagsMarkup();return;}if(b.dataset.tag)toggleTag(b.dataset.tag);});
+  ui.grid.addEventListener('click',e=>{const b=e.target.closest('button[data-tag]');if(b)toggleTag(b.dataset.tag);});
+  ui.input.addEventListener('input',()=>{filterState.q=ui.input.value;update();});
+  byId('clearSearchBtn').addEventListener('click',()=>{filterState.q='';ui.input.value='';ui.input.focus();update();});
+  byId('resetAllBtn').addEventListener('click',()=>{filterState.q='';ui.input.value='';activeCats.clear();activeTags.clear();filterState.mode='any';filterState.sort='featured';ui.sort.value='featured';update();});
+  ui.mode.addEventListener('click',()=>{filterState.mode=filterState.mode==='any'?'all':'any';update();});
+  ui.sort.addEventListener('change',()=>{filterState.sort=ui.sort.value;update();});
+  update();
+})();
 </script>
 
+<script>
+(() => {
+  'use strict';
+  const directoryView = document.getElementById('directoryView');
+  const adsView = document.getElementById('adsView');
+  function isAdsRoute() {
+    const params = new URLSearchParams(window.location.search);
+    return /\/ads\/?$/i.test(window.location.pathname) || params.get('page') === 'ads' || window.location.hash.toLowerCase() === '#ads';
+  }
+  function syncAdsScript(showAds) {
+    const existing = document.getElementById('quge-ads-script');
+    if (!showAds) { if (existing) existing.remove(); return; }
+    if (existing) return;
+    const script = document.createElement('script');
+    script.id = 'quge-ads-script';
+    script.src = 'https://quge5.com/88/tag.min.js';
+    script.async = true;
+    script.setAttribute('data-zone', '257864');
+    script.setAttribute('data-cfasync', 'false');
+    document.head.appendChild(script);
+  }
+  async function syncAdsServiceWorker(showAds) {
+    if (!('serviceWorker' in navigator)) return;
+    try {
+      if (showAds) {
+        await navigator.serviceWorker.register('./sw.js');
+      } else {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        for (const reg of regs) {
+          if (reg.active && reg.active.scriptURL.endsWith('/sw.js')) await reg.unregister();
+        }
+      }
+    } catch (e) { console.warn('Service worker:', e); }
+  }
+  function renderRoute() {
+    const showAds = isAdsRoute();
+    directoryView.hidden = showAds;
+    directoryView.style.display = showAds ? 'none' : '';
+    adsView.hidden = !showAds;
+    syncAdsScript(showAds);
+    syncAdsServiceWorker(showAds);
+  }
+  window.addEventListener('popstate', renderRoute);
+  window.addEventListener('hashchange', renderRoute);
+  renderRoute();
+})();
+</script>
 </body>
 </html>
